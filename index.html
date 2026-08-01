@@ -1,0 +1,605 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cádiz · 22–28 agosto 2026</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,900&family=Archivo:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#1b2a2f;          /* casi negro azulado, tinta */
+    --paper:#f3ede1;        /* arena clara */
+    --paper2:#ebe2d2;       /* arena algo más tostada */
+    --sea:#2f6f76;          /* verde-azulado atlántico */
+    --sea-deep:#1d4c52;     /* mar profundo */
+    --sun:#e0803b;          /* naranja atardecer */
+    --sun-soft:#eaa860;     /* naranja suave */
+    --coral:#c65a4a;        /* terracota apagada */
+    --line:#ccbfa8;         /* línea sobre arena */
+    --done:#3f7d68;         /* verde reserva hecha */
+    --shadow: 0 1px 0 rgba(27,42,47,.06);
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{
+    background:var(--paper);
+    color:var(--ink);
+    font-family:'Archivo',system-ui,sans-serif;
+    line-height:1.5;
+    -webkit-font-smoothing:antialiased;
+  }
+  .wrap{max-width:920px;margin:0 auto;padding:0 20px}
+
+  /* ---------- HERO ---------- */
+  header.hero{
+    position:relative;
+    padding:64px 0 40px;
+    overflow:hidden;
+    background:
+      linear-gradient(180deg, var(--sea-deep) 0%, var(--sea) 46%, var(--sun-soft) 88%, var(--sun) 100%);
+    color:#fbf6ec;
+  }
+  header.hero::after{
+    /* horizonte / sol */
+    content:"";
+    position:absolute; left:50%; bottom:-140px; transform:translateX(-50%);
+    width:280px;height:280px;border-radius:50%;
+    background:radial-gradient(circle at 50% 40%, #ffe4b8 0%, var(--sun) 55%, rgba(224,128,59,0) 72%);
+    opacity:.9;
+  }
+  .hero .wrap{position:relative;z-index:2}
+  .eyebrow{
+    font-family:'Archivo';font-weight:600;letter-spacing:.34em;text-transform:uppercase;
+    font-size:12px;opacity:.85;margin-bottom:18px;
+  }
+  h1{
+    font-family:'Fraunces',serif;font-weight:900;
+    font-size:clamp(44px,9vw,88px);line-height:.94;letter-spacing:-.02em;
+    text-wrap:balance;
+  }
+  h1 em{font-style:italic;font-weight:400;color:#ffe4b8}
+  .hero .sub{
+    margin-top:20px;font-size:clamp(15px,2.2vw,19px);max-width:52ch;opacity:.95;
+    font-weight:400;
+  }
+  .hero .meta{
+    margin-top:26px;display:flex;flex-wrap:wrap;gap:10px 26px;font-size:13.5px;font-weight:500;
+    opacity:.95;
+  }
+  .hero .meta span{display:inline-flex;align-items:center;gap:7px}
+  .hero .meta b{font-weight:700}
+
+  /* ---------- SECTION SHELL ---------- */
+  section{padding:52px 0}
+  .sec-head{display:flex;align-items:baseline;gap:16px;margin-bottom:26px}
+  .sec-head .num{
+    font-family:'Fraunces',serif;font-style:italic;font-weight:400;
+    font-size:20px;color:var(--sea);flex:none;
+  }
+  .sec-head h2{
+    font-family:'Fraunces',serif;font-weight:600;font-size:clamp(26px,4vw,36px);
+    letter-spacing:-.01em;line-height:1;
+  }
+  .sec-head .rule{flex:1;height:1px;background:var(--line);align-self:center;margin-left:6px}
+
+  /* ---------- DAY CARDS ---------- */
+  .day{
+    background:#fbf7ee;border:1px solid var(--line);border-radius:14px;
+    padding:0;margin-bottom:18px;overflow:hidden;box-shadow:var(--shadow);
+  }
+  .day summary{
+    list-style:none;cursor:pointer;padding:20px 22px;display:flex;align-items:center;gap:18px;
+    outline:none;
+  }
+  .day summary::-webkit-details-marker{display:none}
+  .day .date{
+    flex:none;text-align:center;min-width:58px;
+  }
+  .day .date .dow{
+    font-family:'Archivo';font-weight:700;text-transform:uppercase;letter-spacing:.12em;
+    font-size:11px;color:var(--sea);
+  }
+  .day .date .dnum{
+    font-family:'Fraunces',serif;font-weight:900;font-size:34px;line-height:.9;
+  }
+  .day .date .mon{font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:.1em;opacity:.6}
+  .day .head-main{flex:1}
+  .day .head-main .title{
+    font-family:'Fraunces',serif;font-weight:600;font-size:19px;letter-spacing:-.01em;
+  }
+  .day .head-main .tag{
+    margin-top:5px;display:inline-flex;gap:8px;flex-wrap:wrap;
+  }
+  .chip{
+    font-size:11px;font-weight:600;letter-spacing:.04em;padding:3px 9px;border-radius:20px;
+    background:var(--paper2);color:var(--sea-deep);border:1px solid var(--line);
+    display:inline-flex;align-items:center;gap:5px;
+  }
+  .chip.walk{background:#e4eee4;color:#3a6b45;border-color:#bcd6bd}
+  .chip.car{background:#eae2f0;color:#6b4a86;border-color:#d3c2e0}
+  .chip.trip{background:#f0e2dd;color:#a24a38;border-color:#e0c2b9}
+  .day .expand{
+    flex:none;color:var(--sea);font-size:22px;transition:transform .25s ease;font-family:'Fraunces',serif;
+  }
+  .day[open] .expand{transform:rotate(45deg)}
+
+  .day .body{padding:2px 22px 22px 22px;border-top:1px dashed var(--line);margin-top:0}
+  .slots{display:grid;gap:0;margin-top:14px}
+  .slot{display:flex;gap:16px;padding:11px 0;border-bottom:1px dashed var(--line)}
+  .slot:last-child{border-bottom:none}
+  .slot .when{
+    flex:none;width:96px;font-weight:700;font-size:12px;text-transform:uppercase;letter-spacing:.08em;
+    color:var(--sea);padding-top:2px;
+  }
+  .slot .what{flex:1;font-size:15px}
+  .slot .what .place{font-weight:600}
+  .slot .what .note{display:block;font-size:13px;opacity:.72;margin-top:2px}
+  .slot .what a{color:var(--coral);text-decoration:none;border-bottom:1px solid rgba(198,90,74,.3)}
+
+  .pill{
+    font-size:10.5px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;
+    padding:2px 7px;border-radius:5px;margin-left:8px;vertical-align:middle;
+  }
+  .pill.heavy{background:#f2ddc9;color:#a5622a}
+  .pill.light{background:#dfeceb;color:#2f6f76}
+  .pill.free{background:#efe7d6;color:#8a7a54}
+
+  /* ---------- SUNSETS ---------- */
+  .sun-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:16px}
+  .sunset{
+    position:relative;border-radius:14px;padding:22px 20px 20px;overflow:hidden;
+    background:linear-gradient(160deg,#2f6f76 0%,#3d7c73 40%,#e0803b 140%);
+    color:#fdf6ea;min-height:150px;display:flex;flex-direction:column;
+  }
+  .sunset .sky{position:absolute;right:-30px;top:-30px;width:110px;height:110px;border-radius:50%;
+    background:radial-gradient(circle,#ffe1ad 0%,rgba(255,225,173,0) 70%);opacity:.8}
+  .sunset .st-day{font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;opacity:.9;position:relative}
+  .sunset .st-name{font-family:'Fraunces',serif;font-weight:600;font-size:22px;margin-top:8px;line-height:1.05;position:relative}
+  .sunset .st-desc{font-size:13px;margin-top:8px;opacity:.94;position:relative;flex:1}
+  .sunset .st-tip{font-size:12px;margin-top:12px;font-weight:600;opacity:.95;position:relative;border-top:1px solid rgba(255,255,255,.28);padding-top:9px}
+  .sunset.pending{background:linear-gradient(160deg,#8a7a54 0%,#b98a4e 60%,#e0803b 150%)}
+
+  /* ---------- CHECKLIST ---------- */
+  .checklist{background:#fbf7ee;border:1px solid var(--line);border-radius:14px;overflow:hidden;box-shadow:var(--shadow)}
+  .ck-row{display:flex;align-items:center;gap:14px;padding:14px 20px;border-bottom:1px dashed var(--line)}
+  .ck-row:last-child{border-bottom:none}
+  .ck-box{
+    flex:none;width:22px;height:22px;border-radius:6px;border:2px solid var(--sea);
+    display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:700;color:#fff;
+  }
+  .ck-row.done .ck-box{background:var(--done);border-color:var(--done)}
+  .ck-row.todo .ck-box{background:#fff;border-color:var(--line)}
+  .ck-main{flex:1}
+  .ck-main .cday{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--sea)}
+  .ck-main .cplace{font-weight:600;font-size:15px;margin-top:1px}
+  .ck-main .cplace.strike{text-decoration:line-through;opacity:.55;font-weight:500}
+  .ck-main .cwhen{font-size:12.5px;opacity:.7;margin-top:1px}
+  .ck-phone{flex:none;font-size:13px;font-weight:600;color:var(--coral);text-decoration:none;white-space:nowrap}
+  .ck-status{flex:none;font-size:10.5px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;padding:3px 9px;border-radius:20px}
+  .ck-status.ok{background:#dcece2;color:var(--done)}
+  .ck-status.pend{background:#f2e5d0;color:#9a7534}
+  .ck-summary{display:flex;gap:22px;padding:16px 20px;background:var(--paper2);font-size:13px;font-weight:600}
+  .ck-summary b{font-family:'Fraunces',serif;font-size:18px;font-weight:900}
+  .ck-summary .ok b{color:var(--done)}
+  .ck-summary .pend b{color:var(--sun)}
+
+  /* ---------- NOTES ---------- */
+  .notes{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px}
+  .note-card{background:#fbf7ee;border:1px solid var(--line);border-radius:12px;padding:18px 18px}
+  .note-card h3{font-family:'Fraunces',serif;font-weight:600;font-size:16px;margin-bottom:8px;display:flex;align-items:center;gap:8px}
+  .note-card p{font-size:13.5px;opacity:.82}
+  .note-card .ic{font-size:18px}
+
+  footer{padding:40px 0 60px;text-align:center;color:var(--sea-deep)}
+  footer .v{font-family:'Fraunces',serif;font-style:italic;font-size:15px}
+  footer .tiny{font-size:12px;opacity:.6;margin-top:6px}
+
+  /* ---------- PALMAR MUSIC CARDS ---------- */
+  .palmar-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:16px}
+  .pcard{background:#fbf7ee;border:1px solid var(--line);border-radius:14px;padding:20px 20px 18px;box-shadow:var(--shadow);display:flex;flex-direction:column}
+  .pcard .pc-top{display:flex;align-items:baseline;justify-content:space-between;gap:10px;margin-bottom:3px}
+  .pcard .pc-name{font-family:'Fraunces',serif;font-weight:600;font-size:19px;letter-spacing:-.01em}
+  .pcard .pc-rate{flex:none;font-size:12px;font-weight:700;color:var(--sea);background:var(--paper2);border:1px solid var(--line);border-radius:20px;padding:2px 9px}
+  .pcard .pc-tags{display:flex;flex-wrap:wrap;gap:6px;margin:8px 0 10px}
+  .pcard .pc-tag{font-size:10.5px;font-weight:600;letter-spacing:.03em;padding:3px 9px;border-radius:20px;border:1px solid var(--line);background:var(--paper2);color:var(--sea-deep);display:inline-flex;align-items:center;gap:4px}
+  .pcard .pc-tag.music{background:#f0e2dd;color:#a24a38;border-color:#e0c2b9}
+  .pcard .pc-tag.front{background:#e4eee4;color:#3a6b45;border-color:#bcd6bd}
+  .pcard .pc-desc{font-size:13.5px;opacity:.85;flex:1;line-height:1.5}
+  .pcard .pc-desc b{font-weight:600;opacity:1}
+  .pcard .pc-foot{margin-top:12px;padding-top:10px;border-top:1px dashed var(--line);font-size:12px;display:flex;justify-content:space-between;align-items:center;gap:8px}
+  .pcard .pc-foot .pick{font-weight:700;color:var(--sun);text-transform:uppercase;letter-spacing:.05em;font-size:10.5px}
+  .pcard .pc-foot a{color:var(--coral);text-decoration:none;font-weight:600}
+  .pcard.top{border-color:var(--sun);border-width:1.5px}
+
+  @media (max-width:560px){
+    .slot{flex-direction:column;gap:2px}
+    .slot .when{width:auto}
+    .day summary{gap:12px;padding:16px}
+    .ck-row{flex-wrap:wrap}
+    .ck-phone{order:5}
+  }
+  @media (prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="wrap">
+    <div class="eyebrow">Costa de la Luz · Verano 2026</div>
+    <h1>Cinco días<br>entre <em>calas</em><br>y atardeceres</h1>
+    <p class="sub">Base fija en Conil. Mañanas tranquilas cerca del hotel, desplazamientos cortos solo para perseguir la mejor luz del día y cenar donde cae el sol.</p>
+    <div class="meta">
+      <span>📍 <b>Hipotels Flamenco</b>, Fuente del Gallo</span>
+      <span>🗓 <b>22–28 agosto</b> 2026</span>
+      <span>🚗 Madrid ida y vuelta · ~7h</span>
+    </div>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <!-- ===================== PLAN DIARIO ===================== -->
+  <section id="plan">
+    <div class="sec-head">
+      <span class="num">i</span>
+      <h2>El plan, día a día</h2>
+      <span class="rule"></span>
+    </div>
+
+    <!-- SÁB 22 -->
+    <details class="day" open>
+      <summary>
+        <div class="date"><div class="dow">Sáb</div><div class="dnum">22</div><div class="mon">Ago</div></div>
+        <div class="head-main">
+          <div class="title">Madrid → Conil</div>
+          <div class="tag"><span class="chip trip">🚗 Día de viaje</span><span class="chip">Llegada tarde</span></div>
+        </div>
+        <div class="expand">+</div>
+      </summary>
+      <div class="body">
+        <div class="slots">
+          <div class="slot"><div class="when">Mañana</div><div class="what">Salida de Madrid 8:00–9:00 por A-4/A-48.</div></div>
+          <div class="slot"><div class="when">Comida <span class="pill heavy">Fuerte</span></div><div class="what"><span class="place">Venta Esteban</span> · Jerez de la Frontera (Colonia de Caulina), venta clásica a las afueras, sin líos de aparcar.<span class="note">Con salida 8:00, cae sobre las 13:30–14:00. Jerez ya está a ~50 min de Conil.</span></div></div>
+          <div class="slot"><div class="when">Tarde</div><div class="what">Llegada ~16:00–17:00, check-in y primer baño en la playa del hotel.</div></div>
+          <div class="slot"><div class="when">Cena <span class="pill light">Ligera</span></div><div class="what"><span class="place">Sin reserva</span> — improvisado por el casco de Conil, donde os apetezca al llegar.</div></div>
+        </div>
+      </div>
+    </details>
+
+    <!-- DOM 23 -->
+    <details class="day">
+      <summary>
+        <div class="date"><div class="dow">Dom</div><div class="dnum">23</div><div class="mon">Ago</div></div>
+        <div class="head-main">
+          <div class="title">Zona hotel + atardecer en El Palmar</div>
+          <div class="tag"><span class="chip walk">🚶 Playa andando</span><span class="chip">Descanso</span></div>
+        </div>
+        <div class="expand">+</div>
+      </summary>
+      <div class="body">
+        <div class="slots">
+          <div class="slot"><div class="when">Mañana</div><div class="what">Playa del hotel (Fuente del Gallo) o calas contiguas por la arena.</div></div>
+          <div class="slot"><div class="when">Comida <span class="pill heavy">Fuerte</span></div><div class="what"><span class="place">El Mirador de El Roqueo</span> · Fuente del Gallo, vistas al mar.<span class="note">Evitad los arroces (su punto flojo): mejor atún, pescado a la plancha y ensaladas. Reservar.</span></div></div>
+          <div class="slot"><div class="when">Tarde</div><div class="what">Más playa o piscina, siesta.</div></div>
+          <div class="slot"><div class="when">Atardecer + cena <span class="pill light">Ligera</span></div><div class="what"><span class="place">Nómada Playa</span> · El Palmar (🚗 15 min), pie de arena y puesta de sol.</div></div>
+        </div>
+      </div>
+    </details>
+
+    <!-- LUN 24 -->
+    <details class="day">
+      <summary>
+        <div class="date"><div class="dow">Lun</div><div class="dnum">24</div><div class="mon">Ago</div></div>
+        <div class="head-main">
+          <div class="title">Zona hotel + Vejer al atardecer</div>
+          <div class="tag"><span class="chip walk">🚶 Playa andando</span><span class="chip car">🚗 Vejer tarde</span></div>
+        </div>
+        <div class="expand">+</div>
+      </summary>
+      <div class="body">
+        <div class="slots">
+          <div class="slot"><div class="when">Mañana</div><div class="what">Playa del hotel / Calas de Roche.</div></div>
+          <div class="slot"><div class="when">Comida <span class="pill light">Ligera</span></div><div class="what">En el hotel o Conil — para dejar hueco a la cena en Vejer.</div></div>
+          <div class="slot"><div class="when">Tarde</div><div class="what">Subida a <span class="place">Vejer de la Frontera</span> (🚗 20 min) sobre las 18:30–19:00. Judería, castillo y miradores con la luz de la tarde.</div></div>
+          <div class="slot"><div class="when">Atardecer</div><div class="what"><span class="place">Mirador de La Cobijada</span> o <span class="place">Mirador Don Quijote</span> antes de cenar — el casco blanco teñido de naranja.</div></div>
+          <div class="slot"><div class="when">Cena <span class="pill heavy">Fuerte</span></div><div class="what"><span class="place">La Judería</span> · terraza alta, 21:45h. <em>Reservado ✓</em></div></div>
+        </div>
+      </div>
+    </details>
+
+    <!-- MAR 25 -->
+    <details class="day">
+      <summary>
+        <div class="date"><div class="dow">Mar</div><div class="dnum">25</div><div class="mon">Ago</div></div>
+        <div class="head-main">
+          <div class="title">Zona hotel + atardecer en Trafalgar + cena en El Palmar</div>
+          <div class="tag"><span class="chip car">🚗 Cala del Aceite</span><span class="chip car">🚗 Trafalgar tarde</span></div>
+        </div>
+        <div class="expand">+</div>
+      </summary>
+      <div class="body">
+        <div class="slots">
+          <div class="slot"><div class="when">Mañana</div><div class="what"><span class="place">Cala del Aceite</span> (🚗, llegar antes de las 11:00 por el parking) o Cala del Pato andando.</div></div>
+          <div class="slot"><div class="when">Comida <span class="pill heavy">Fuerte</span></div><div class="what">En el hotel o Conil.</div></div>
+          <div class="slot"><div class="when">Tarde</div><div class="what">Hacia Los Caños de Meca / Cabo de Trafalgar (🚗 25 min).</div></div>
+          <div class="slot"><div class="when">Atardecer</div><div class="what"><span class="place">Cabo de Trafalgar</span> — el mejor de la zona, junto al faro. Llegad con margen para aparcar.</div></div>
+          <div class="slot"><div class="when">Cena <span class="pill light">Ligera</span></div><div class="what"><span class="place">Nayah Beach</span> · El Palmar, cocina asiática (pokes, sushi, bowls). 21:00h. <em>Reservado ✓</em><span class="note">De Trafalgar a El Palmar, ~20 min.</span></div></div>
+        </div>
+      </div>
+    </details>
+
+    <!-- MIÉ 26 -->
+    <details class="day">
+      <summary>
+        <div class="date"><div class="dow">Mié</div><div class="dnum">26</div><div class="mon">Ago</div></div>
+        <div class="head-main">
+          <div class="title">Cádiz capital + cena en Los Caños</div>
+          <div class="tag"><span class="chip car">🚗 45 min</span><span class="chip">Día de ciudad</span></div>
+        </div>
+        <div class="expand">+</div>
+      </summary>
+      <div class="body">
+        <div class="slots">
+          <div class="slot"><div class="when">Mañana</div><div class="what">Casco antiguo: catedral, barrio del Pópulo, mercado central. Paseo sin prisa.</div></div>
+          <div class="slot"><div class="when">Comida <span class="pill heavy">Fuerte</span></div><div class="what">Freiduría típica gaditana — pescaíto frito. <span class="note">(Pendiente de elegir sitio — lo cerramos en la próxima iteración.)</span></div></div>
+          <div class="slot"><div class="when">Tarde</div><div class="what">Torre Tavira y cámara oscura, o playa urbana de La Caleta.</div></div>
+          <div class="slot"><div class="when">Atardecer</div><div class="what"><span class="place">La Caleta</span> + paseo al <span class="place">Castillo de San Sebastián</span> por el espigón. El atardecer icónico de Cádiz.</div></div>
+          <div class="slot"><div class="when">Cena <span class="pill light">Media</span></div><div class="what"><span class="place">Jardín de Madreselva</span> · Los Caños de Meca, cocina árabe-mediterránea en un jardín precioso.<span class="note">⏳ Reservar con unos días de antelación a esta fecha.</span></div></div>
+        </div>
+      </div>
+    </details>
+
+    <!-- JUE 27 -->
+    <details class="day">
+      <summary>
+        <div class="date"><div class="dow">Jue</div><div class="dnum">27</div><div class="mon">Ago</div></div>
+        <div class="head-main">
+          <div class="title">Conil, relax y despedida</div>
+          <div class="tag"><span class="chip walk">🚶 Playa andando</span><span class="chip">Último día</span></div>
+        </div>
+        <div class="expand">+</div>
+      </summary>
+      <div class="body">
+        <div class="slots">
+          <div class="slot"><div class="when">Mañana</div><div class="what">Vuestra playa favorita de la semana o piscina del hotel.</div></div>
+          <div class="slot"><div class="when">Comida <span class="pill light">Ligera</span></div><div class="what">En el hotel o Conil.</div></div>
+          <div class="slot"><div class="when">Tarde</div><div class="what">Descanso, últimas compras, paseo por el casco histórico.</div></div>
+          <div class="slot"><div class="when">Cena <span class="pill heavy">Fuerte</span></div><div class="what">Despedida en Conil — <span class="place">Catalina</span> o <span class="place">MA&amp;MA</span> (atún). <span class="note">(Elegir uno. Cuartel del Mar cancelado.)</span></div></div>
+        </div>
+      </div>
+    </details>
+
+    <!-- VIE 28 -->
+    <details class="day">
+      <summary>
+        <div class="date"><div class="dow">Vie</div><div class="dnum">28</div><div class="mon">Ago</div></div>
+        <div class="head-main">
+          <div class="title">Conil → Madrid</div>
+          <div class="tag"><span class="chip trip">🚗 Día de viaje</span></div>
+        </div>
+        <div class="expand">+</div>
+      </summary>
+      <div class="body">
+        <div class="slots">
+          <div class="slot"><div class="when">Mañana</div><div class="what">Desayuno tranquilo, check-out y último baño rápido si da tiempo.</div></div>
+          <div class="slot"><div class="when">Mediodía</div><div class="what">Salida hacia Madrid (~7h + paradas). Comer por el camino.</div></div>
+          <div class="slot"><div class="when">Tarde</div><div class="what">Llegada a Madrid a media tarde-noche.</div></div>
+        </div>
+      </div>
+    </details>
+  </section>
+
+  <!-- ===================== ATARDECERES ===================== -->
+  <section id="atardeceres">
+    <div class="sec-head">
+      <span class="num">ii</span>
+      <h2>Dónde cae el sol</h2>
+      <span class="rule"></span>
+    </div>
+    <div class="sun-grid">
+      <div class="sunset">
+        <div class="sky"></div>
+        <div class="st-day">Lunes 24</div>
+        <div class="st-name">Miradores de Vejer</div>
+        <div class="st-desc">La Cobijada, en la judería junto a las murallas, y Don Quijote, con la mejor panorámica del casco blanco.</div>
+        <div class="st-tip">Mejor luz una hora antes del ocaso.</div>
+      </div>
+      <div class="sunset">
+        <div class="sky"></div>
+        <div class="st-day">Martes 25</div>
+        <div class="st-name">Cabo de Trafalgar</div>
+        <div class="st-desc">El faro sobre la península, con playa a ambos lados. El atardecer nº1 de toda la zona.</div>
+        <div class="st-tip">Aparcar temprano en agosto.</div>
+      </div>
+      <div class="sunset">
+        <div class="sky"></div>
+        <div class="st-day">Miércoles 26</div>
+        <div class="st-name">La Caleta, Cádiz</div>
+        <div class="st-desc">Entre dos castillos, con el paseo del espigón hacia San Sebastián y las olas rompiendo a los lados.</div>
+        <div class="st-tip">Broche del día de ciudad.</div>
+      </div>
+      <div class="sunset pending">
+        <div class="sky"></div>
+        <div class="st-day">Comodín · día libre</div>
+        <div class="st-name">Torre del Puerco</div>
+        <div class="st-desc">La Barrosa (Chiclana), a 20 min. Torre vigía sobre arena sin edificios. Copa en Nova Sunset Club al lado.</div>
+        <div class="st-tip">Alternativa si no queréis alejaros.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== EL PALMAR CON MÚSICA ===================== -->
+  <section id="palmar">
+    <div class="sec-head">
+      <span class="num">iii</span>
+      <h2>El Palmar, cenar con música</h2>
+      <span class="rule"></span>
+    </div>
+    <p style="font-size:14px;opacity:.8;margin:-10px 0 22px;max-width:60ch">Sitios en primera línea para la cena del domingo (o cualquier noche en El Palmar). Casi todos con música en vivo y puesta de sol; el punto flojo suele ser el servicio en horas punta, así que reservad.</p>
+    <div class="palmar-grid">
+
+      <div class="pcard">
+        <div class="pc-top"><span class="pc-name">La Guayabita Beach</span><span class="pc-rate">★ 4.9</span></div>
+        <div class="pc-tags"><span class="pc-tag front">Primera línea</span><span class="pc-tag">Pokes &amp; bowls</span><span class="pc-tag">Ligera</span></div>
+        <div class="pc-desc">En el paseo marítimo, con la <b>nota más alta</b> de El Palmar. Pokes, bowls, sushi y ensaladas muy frescas, también smoothies y helados. Sin música, pero ideal para una <b>cena ligera y saludable</b>.</div>
+        <div class="pc-foot"><span class="pick">Fresco y ligero</span><a href="tel:+34686565349">686 56 53 49</a></div>
+      </div>
+
+      <div class="pcard">
+        <div class="pc-top"><span class="pc-name">Nómada Playa</span><span class="pc-rate">★ 4.4</span></div>
+        <div class="pc-tags"><span class="pc-tag front">Pie de arena</span><span class="pc-tag music">♪ Música</span><span class="pc-tag">Atardecer</span></div>
+        <div class="pc-desc">Tapas, música en vivo y puesta de sol pegado a la arena. <b>Ya está en el plan del domingo.</b> Ambiente relajado y buen rollo.</div>
+        <div class="pc-foot"><span class="pick">En el plan · Dom 23</span></div>
+      </div>
+
+      <div class="pcard">
+        <div class="pc-top"><span class="pc-name">Nayah Beach</span><span class="pc-rate">★ 4.8</span></div>
+        <div class="pc-tags"><span class="pc-tag front">Pie de playa</span><span class="pc-tag">Cocina asiática</span></div>
+        <div class="pc-desc">Sin música en vivo, pero con la <b>nota más alta</b> de la zona. Sushi, tempura y bowls de atún, trato de pareja encantador. Algo apartado del centro. Para una cena distinta y tranquila.</div>
+        <div class="pc-foot"><span class="pick">En el plan · Mar 25, 21h ✓</span><a href="tel:+34615941176">615 94 11 76</a></div>
+      </div>
+
+      <div class="pcard">
+        <div class="pc-top"><span class="pc-name">Valhalla Beach Club</span><span class="pc-rate">★ 4.0</span></div>
+        <div class="pc-tags"><span class="pc-tag music">♪ Música</span><span class="pc-tag">Beach club</span><span class="pc-tag">Piscina</span></div>
+        <div class="pc-desc">El más <b>premium</b>: piscina, camas balinesas, performers y cocina cuidada (wagyu, arroces). Algo retirado de la arena. Reservad cama con antelación.</div>
+        <div class="pc-foot"><span class="pick">Día + noche</span><a href="tel:+34956106396">956 10 63 96</a></div>
+      </div>
+
+      <div class="pcard">
+        <div class="pc-top"><span class="pc-name">Havanita Terraza</span><span class="pc-rate">★ 3.9</span></div>
+        <div class="pc-tags"><span class="pc-tag music">♪ Música en vivo</span><span class="pc-tag">Copas</span></div>
+        <div class="pc-desc">Más de <b>copa con música</b> que de cena. Primera fila junto al mar para el atardecer, pero servicio de barra lento y bebidas caras. Para tomar algo, no para cenar.</div>
+        <div class="pc-foot"><span class="pick">Solo copas</span><a href="tel:+34617296872">617 29 68 72</a></div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ===================== CHECKLIST RESERVAS ===================== -->
+  <section id="reservas">
+    <div class="sec-head">
+      <span class="num">iv</span>
+      <h2>Checklist de reservas</h2>
+      <span class="rule"></span>
+    </div>
+    <div class="checklist">
+      <div class="ck-summary">
+        <span class="ok">Hechas <b>2</b></span>
+        <span class="pend">Pendientes <b>4</b></span>
+        <span>Libres <b>1</b> (despedida jue)</span>
+      </div>
+
+      <div class="ck-row done">
+        <div class="ck-box">✓</div>
+        <div class="ck-main">
+          <div class="cday">Lun 24 · cena</div>
+          <div class="cplace">La Judería · Vejer</div>
+          <div class="cwhen">Terraza alta · 21:45h</div>
+        </div>
+        <span class="ck-status ok">Reservado</span>
+      </div>
+
+      <div class="ck-row todo">
+        <div class="ck-box"></div>
+        <div class="ck-main">
+          <div class="cday">Sáb 22 · cena</div>
+          <div class="cplace strike">Sin reserva — improvisado por Conil</div>
+        </div>
+        <span class="ck-status pend">Libre</span>
+      </div>
+
+      <div class="ck-row todo">
+        <div class="ck-box"></div>
+        <div class="ck-main">
+          <div class="cday">Dom 23 · comida</div>
+          <div class="cplace">El Mirador de El Roqueo · Fuente del Gallo</div>
+        </div>
+        <a class="ck-phone" href="tel:+34956443337">956 44 33 37</a>
+        <span class="ck-status pend">Pendiente</span>
+      </div>
+
+      <div class="ck-row todo">
+        <div class="ck-box"></div>
+        <div class="ck-main">
+          <div class="cday">Dom 23 · cena</div>
+          <div class="cplace">Nómada Playa · El Palmar</div>
+        </div>
+        <a class="ck-phone" href="tel:+34653664726">653 66 47 26</a>
+        <span class="ck-status pend">Pendiente</span>
+      </div>
+
+      <div class="ck-row done">
+        <div class="ck-box">✓</div>
+        <div class="ck-main">
+          <div class="cday">Mar 25 · cena</div>
+          <div class="cplace">Nayah Beach · El Palmar</div>
+          <div class="cwhen">21:00h</div>
+        </div>
+        <span class="ck-status ok">Reservado</span>
+      </div>
+
+      <div class="ck-row todo">
+        <div class="ck-box"></div>
+        <div class="ck-main">
+          <div class="cday">Mié 26 · cena</div>
+          <div class="cplace">Jardín de Madreselva · Los Caños</div>
+          <div class="cwhen">⏳ Reservar unos días antes del 26</div>
+        </div>
+        <a class="ck-phone" href="tel:+34647713608">647 71 36 08</a>
+        <span class="ck-status pend">Pendiente</span>
+      </div>
+
+      <div class="ck-row todo">
+        <div class="ck-box"></div>
+        <div class="ck-main">
+          <div class="cday">Jue 27 · cena</div>
+          <div class="cplace">Catalina o MA&amp;MA · Conil (despedida)</div>
+          <div class="cwhen">Elegir uno · Cuartel del Mar cancelado</div>
+        </div>
+        <a class="ck-phone" href="tel:+34744743863">744 74 38 63</a>
+        <span class="ck-status pend">Pendiente</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== NOTAS ===================== -->
+  <section id="notas">
+    <div class="sec-head">
+      <span class="num">v</span>
+      <h2>No olvidar</h2>
+      <span class="rule"></span>
+    </div>
+    <div class="notes">
+      <div class="note-card">
+        <h3><span class="ic">🌬️</span> Viento manda</h3>
+        <p>Mira Windy o Windguru cada noche. Con levante (E/SE) → calas resguardadas (Aceite, Roche). Con poniente o calma → cualquier playa, incluida la del hotel.</p>
+      </div>
+      <div class="note-card">
+        <h3><span class="ic">🅿️</span> Aparcamiento</h3>
+        <p>En toda la zona de calas y en Trafalgar, llegar antes de las 11:00 o después de las 14:00. Cala del Aceite se llena muy pronto pese a estar apartada.</p>
+      </div>
+      <div class="note-card">
+        <h3><span class="ic">🌊</span> Mareas</h3>
+        <p>En las Calas de Roche y Fuente del Gallo, con marea alta la arena casi desaparece. Consulta la tabla la víspera.</p>
+      </div>
+      <div class="note-card">
+        <h3><span class="ic">🍽️</span> Cierres a vigilar</h3>
+        <p>El Roqueo cierra lunes · Feduchy y La Fontanilla, miércoles · Catalina y Malabata, sábado y domingo. Reserva las cenas con antelación en agosto.</p>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="v">Plan de viaje · versión 9</div>
+    <div class="tiny">Iremos iterando · Cádiz, agosto 2026</div>
+  </div>
+</footer>
+
+</body>
+</html>
