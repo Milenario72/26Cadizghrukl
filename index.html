@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="robots" content="noindex, nofollow">
-<title>2026 Cádiz · v27</title>
+<title>2026 Cádiz · v28</title>
 <link rel="apple-touch-icon" href="apple-touch-icon.png">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
@@ -229,6 +229,27 @@
     .ck-row{flex-wrap:wrap}
     .ck-phone{order:5}
   }
+  /* ---------- TAB BAR ---------- */
+  body{padding-bottom:78px}
+  .tabbar{
+    position:fixed;left:0;right:0;bottom:0;z-index:50;
+    background:rgba(251,247,238,.92);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);
+    border-top:1px solid var(--line);
+    display:flex;justify-content:space-around;align-items:stretch;
+    padding-bottom:env(safe-area-inset-bottom,0);
+  }
+  .tabbar button{
+    flex:1;background:none;border:none;padding:9px 4px 10px;
+    display:flex;flex-direction:column;align-items:center;gap:3px;
+    font-family:'Archivo',sans-serif;color:var(--sea-deep);cursor:pointer;
+    -webkit-tap-highlight-color:transparent;
+  }
+  .tabbar button .tb-ic{font-size:19px;line-height:1}
+  .tabbar button .tb-label{font-size:10px;font-weight:600;letter-spacing:.01em}
+  .tabbar button.active{color:var(--sun)}
+  .tabbar button.active .tb-ic{transform:translateY(-1px)}
+  .tabbar button:active{opacity:.6}
+
   @media (prefers-reduced-motion:reduce){*{transition:none!important}}
 </style>
 </head>
@@ -399,10 +420,71 @@
     </details>
   </section>
 
+  <!-- ===================== PLAYAS ===================== -->
+  <section id="playas">
+    <div class="sec-head">
+      <span class="num">ii</span>
+      <h2>Playas y calas</h2>
+      <span class="rule"></span>
+    </div>
+    <p style="font-size:14px;opacity:.8;margin:-10px 0 22px;max-width:60ch">Resguardadas (buenas con levante) vs. abiertas (mejor con poniente o para atardecer). Consulta el viento cada noche antes de decidir.</p>
+    <div class="palmar-grid">
+
+      <div class="pcard top">
+        <div class="pc-top"><span class="pc-name">Fuente del Gallo</span><span class="pc-rate">🚶 0 min</span></div>
+        <div class="pc-tags"><span class="pc-tag front">Resguardada</span><span class="pc-tag">Playa del hotel</span></div>
+        <div class="pc-desc">A pie desde el hotel. Cala protegida por acantilados, aguas tranquilas. Vuestra opción por defecto para la mañana.</div>
+      </div>
+
+      <div class="pcard">
+        <div class="pc-top"><span class="pc-name">Calas de Roche</span><span class="pc-rate">🚶 10 min</span></div>
+        <div class="pc-tags"><span class="pc-tag front">Resguardada</span><span class="pc-tag">Marea</span></div>
+        <div class="pc-desc">Frailecillo, Cala del Pato y otras encadenadas hacia el norte. Aguas tranquilas entre acantilados.<span class="note">⚠️ Con marea alta la arena casi desaparece — consultar tabla.</span></div>
+      </div>
+
+      <div class="pcard">
+        <div class="pc-top"><span class="pc-name">Cala del Aceite</span><span class="pc-rate">🚗 10 min</span></div>
+        <div class="pc-tags"><span class="pc-tag front">Muy resguardada</span><span class="pc-tag">Se llena pronto</span></div>
+        <div class="pc-desc">La más protegida de la zona, balsa de aceite con poniente. La mejor opción en días de levante fuerte.<span class="note">Id antes de las 11:00, el parking se llena rápido pese a estar apartada.</span></div>
+      </div>
+
+      <div class="pcard">
+        <div class="pc-top"><span class="pc-name">Playa de Castilnovo</span><span class="pc-rate">🚶 15 min</span></div>
+        <div class="pc-tags"><span class="pc-tag front">Abierta</span><span class="pc-tag">Poca gente</span></div>
+        <div class="pc-desc">Larga, con dunas, la menos masificada de Conil. Más expuesta al viento que las calas, pero espacio de sobra.</div>
+      </div>
+
+      <div class="pcard">
+        <div class="pc-top"><span class="pc-name">Zahora</span><span class="pc-rate">🚗 25 min</span></div>
+        <div class="pc-tags"><span class="pc-tag front">Algo resguardada</span><span class="pc-tag">Ya la conocéis</span></div>
+        <div class="pc-desc">Protegida parcialmente por dunas, menos masificada que Conil en agosto. Comisteis aquí el domingo (La Kalima).</div>
+      </div>
+
+      <div class="pcard">
+        <div class="pc-top"><span class="pc-name">Calas de Meca</span><span class="pc-rate">🚗 25 min</span></div>
+        <div class="pc-tags"><span class="pc-tag front">Resguardada</span><span class="pc-tag">Junto a Trafalgar</span></div>
+        <div class="pc-desc">Calitas con cuevas bajo el acantilado del cabo, junto al faro. Combina bien con el atardecer del martes.</div>
+      </div>
+
+      <div class="pcard">
+        <div class="pc-top"><span class="pc-name">El Palmar</span><span class="pc-rate">🚗 15 min</span></div>
+        <div class="pc-tags"><span class="pc-tag front">Abierta</span><span class="pc-tag">Surf y viento</span></div>
+        <div class="pc-desc">Playa larga y expuesta, la favorita del surf — por eso mismo, mucho viento de día. Mejor para atardecer y cena que para tomar el sol.</div>
+      </div>
+
+      <div class="pcard">
+        <div class="pc-top"><span class="pc-name">Playa de los Alemanes</span><span class="pc-rate">🚗 40 min</span></div>
+        <div class="pc-tags"><span class="pc-tag front">Abierta</span><span class="pc-tag">Muy expuesta</span></div>
+        <div class="pc-desc">Agua clarísima y preciosa, pero muy expuesta al levante. Solo si el viento acompaña ese día.</div>
+      </div>
+
+    </div>
+  </section>
+
   <!-- ===================== ATARDECERES ===================== -->
   <section id="atardeceres">
     <div class="sec-head">
-      <span class="num">ii</span>
+      <span class="num">iii</span>
       <h2>Dónde cae el sol</h2>
       <span class="rule"></span>
     </div>
@@ -435,7 +517,7 @@
   <!-- ===================== RESTAURANTES ===================== -->
   <section id="palmar">
     <div class="sec-head">
-      <span class="num">iii</span>
+      <span class="num">iv</span>
       <h2>Restaurantes</h2>
       <span class="rule"></span>
     </div>
@@ -518,7 +600,7 @@
   <!-- ===================== CHECKLIST RESERVAS ===================== -->
   <section id="reservas">
     <div class="sec-head">
-      <span class="num">iv</span>
+      <span class="num">v</span>
       <h2>Checklist de reservas</h2>
       <span class="rule"></span>
     </div>
@@ -604,7 +686,7 @@
   <!-- ===================== NOTAS ===================== -->
   <section id="notas">
     <div class="sec-head">
-      <span class="num">v</span>
+      <span class="num">vi</span>
       <h2>No olvidar</h2>
       <span class="rule"></span>
     </div>
@@ -631,7 +713,7 @@
   <!-- ===================== ENLACES ÚTILES ===================== -->
   <section id="enlaces">
     <div class="sec-head">
-      <span class="num">vi</span>
+      <span class="num">vii</span>
       <h2>Enlaces útiles</h2>
       <span class="rule"></span>
     </div>
@@ -655,10 +737,25 @@
 
 <footer>
   <div class="wrap">
-    <div class="v">Plan de viaje · versión 27</div>
+    <div class="v">Plan de viaje · versión 28</div>
     <div class="tiny">Iremos iterando · Cádiz, agosto 2026</div>
   </div>
 </footer>
+
+<nav class="tabbar" id="tabbar">
+  <button data-target="plan" class="active" type="button">
+    <span class="tb-ic">📅</span><span class="tb-label">Plan del día</span>
+  </button>
+  <button data-target="playas" type="button">
+    <span class="tb-ic">🏖️</span><span class="tb-label">Playas</span>
+  </button>
+  <button data-target="atardeceres" type="button">
+    <span class="tb-ic">🌅</span><span class="tb-label">Atardeceres</span>
+  </button>
+  <button data-target="palmar" type="button">
+    <span class="tb-ic">🍽️</span><span class="tb-label">Restaurantes</span>
+  </button>
+</nav>
 
 <script>
 (function () {
@@ -688,6 +785,19 @@
     openEl.scrollIntoView({ behavior: 'instant', block: 'start' });
     window.scrollBy(0, -12);
   }
+})();
+
+(function () {
+  var buttons = document.querySelectorAll('.tabbar button');
+  buttons.forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      var target = document.getElementById(btn.getAttribute('data-target'));
+      if (!target) return;
+      buttons.forEach(function (b) { b.classList.remove('active'); });
+      btn.classList.add('active');
+      target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    });
+  });
 })();
 </script>
 
