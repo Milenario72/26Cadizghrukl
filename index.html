@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="robots" content="noindex, nofollow">
-<title>2026 Cádiz · v24</title>
+<title>2026 Cádiz · v25</title>
 <link rel="apple-touch-icon" href="apple-touch-icon.png">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
@@ -254,7 +254,7 @@
     </div>
 
     <!-- SÁB 22 -->
-    <details class="day" open>
+    <details class="day" data-day="22" open>
       <summary>
         <div class="date"><div class="dow">Sáb</div><div class="dnum">22</div><div class="mon">Ago</div></div>
         <div class="head-main">
@@ -274,7 +274,7 @@
     </details>
 
     <!-- DOM 23 -->
-    <details class="day">
+    <details class="day" data-day="23">
       <summary>
         <div class="date"><div class="dow">Dom</div><div class="dnum">23</div><div class="mon">Ago</div></div>
         <div class="head-main">
@@ -294,7 +294,7 @@
     </details>
 
     <!-- LUN 24 -->
-    <details class="day">
+    <details class="day" data-day="24">
       <summary>
         <div class="date"><div class="dow">Lun</div><div class="dnum">24</div><div class="mon">Ago</div></div>
         <div class="head-main">
@@ -315,7 +315,7 @@
     </details>
 
     <!-- MAR 25 -->
-    <details class="day">
+    <details class="day" data-day="25">
       <summary>
         <div class="date"><div class="dow">Mar</div><div class="dnum">25</div><div class="mon">Ago</div></div>
         <div class="head-main">
@@ -336,7 +336,7 @@
     </details>
 
     <!-- MIÉ 26 -->
-    <details class="day">
+    <details class="day" data-day="26">
       <summary>
         <div class="date"><div class="dow">Mié</div><div class="dnum">26</div><div class="mon">Ago</div></div>
         <div class="head-main">
@@ -356,7 +356,7 @@
     </details>
 
     <!-- JUE 27 -->
-    <details class="day">
+    <details class="day" data-day="27">
       <summary>
         <div class="date"><div class="dow">Jue</div><div class="dnum">27</div><div class="mon">Ago</div></div>
         <div class="head-main">
@@ -376,7 +376,7 @@
     </details>
 
     <!-- VIE 28 -->
-    <details class="day">
+    <details class="day" data-day="28">
       <summary>
         <div class="date"><div class="dow">Vie</div><div class="dnum">28</div><div class="mon">Ago</div></div>
         <div class="head-main">
@@ -628,10 +628,41 @@
 
 <footer>
   <div class="wrap">
-    <div class="v">Plan de viaje · versión 24</div>
+    <div class="v">Plan de viaje · versión 25</div>
     <div class="tiny">Iremos iterando · Cádiz, agosto 2026</div>
   </div>
 </footer>
+
+<script>
+(function () {
+  var today = new Date();
+  var y = today.getFullYear();
+  var m = today.getMonth(); // 0-indexed: 7 = agosto
+  var d = today.getDate();
+
+  var targetDay;
+  if (y === 2026 && m === 7 && d >= 22 && d <= 28) {
+    targetDay = d;
+  } else if (y < 2026 || (y === 2026 && m < 7) || (y === 2026 && m === 7 && d < 22)) {
+    targetDay = 22;
+  } else {
+    targetDay = 28;
+  }
+
+  var days = document.querySelectorAll('.day[data-day]');
+  var openEl = null;
+  days.forEach(function (el) {
+    var isTarget = el.getAttribute('data-day') === String(targetDay);
+    el.open = isTarget;
+    if (isTarget) openEl = el;
+  });
+
+  if (openEl) {
+    openEl.scrollIntoView({ behavior: 'instant', block: 'start' });
+    window.scrollBy(0, -12);
+  }
+})();
+</script>
 
 </body>
 </html>
