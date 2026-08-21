@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="robots" content="noindex, nofollow">
-<title>2026 Cádiz · v32</title>
+<title>2026 Cádiz · v33</title>
 <link rel="apple-touch-icon" href="apple-touch-icon.png">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
@@ -230,6 +230,8 @@
   /* ---------- PALMAR MUSIC CARDS ---------- */
   .palmar-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:16px}
   .pcard{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:20px 20px 18px;box-shadow:var(--shadow);display:flex;flex-direction:column}
+  a.pcard{text-decoration:none;color:inherit;transition:transform .15s ease}
+  a.pcard:active{transform:scale(0.98)}
   .pcard .pc-top{display:flex;align-items:baseline;justify-content:space-between;gap:10px;margin-bottom:3px}
   .pcard .pc-name{font-family:'Fraunces',serif;font-weight:600;font-size:19px;letter-spacing:-.01em}
   .pcard .pc-rate{flex:none;font-size:12px;font-weight:700;color:var(--sea);background:var(--paper2);border:1px solid var(--line);border-radius:20px;padding:2px 9px}
@@ -242,6 +244,7 @@
   .pcard .pc-foot{margin-top:12px;padding-top:10px;border-top:1px dashed var(--line);font-size:12px;display:flex;justify-content:space-between;align-items:center;gap:8px}
   .pcard .pc-foot .pick{font-weight:700;color:var(--sun);text-transform:uppercase;letter-spacing:.05em;font-size:10.5px}
   .pcard .pc-foot a{color:var(--coral);text-decoration:none;font-weight:600}
+  .pcard .pc-foot .pc-links{display:flex;gap:12px;align-items:center}
   .pcard.top{border-color:var(--sun);border-width:1.5px}
 
   @media (max-width:560px){
@@ -454,53 +457,61 @@
     <p style="font-size:14px;opacity:.8;margin:-10px 0 22px;max-width:60ch">Resguardadas (buenas con levante) vs. abiertas (mejor con poniente o para atardecer). Consulta el viento cada noche antes de decidir.</p>
     <div class="palmar-grid">
 
-      <div class="pcard top">
+      <a class="pcard top" href="https://www.google.com/maps/search/?api=1&query=Playa+Fuente+del+Gallo+Conil+de+la+Frontera" target="_blank" rel="noopener">
         <div class="pc-top"><span class="pc-name">Fuente del Gallo</span><span class="pc-rate">🚶 0 min</span></div>
         <div class="pc-tags"><span class="pc-tag front">Resguardada</span><span class="pc-tag">Playa del hotel</span></div>
         <div class="pc-desc">A pie desde el hotel. Cala protegida por acantilados, aguas tranquilas. Vuestra opción por defecto para la mañana.</div>
-      </div>
+        <div class="pc-foot"><span class="pick">Ver en Maps ↗</span></div>
+      </a>
 
-      <div class="pcard">
+      <a class="pcard" href="https://www.google.com/maps/search/?api=1&query=Calas+de+Roche+Conil+de+la+Frontera" target="_blank" rel="noopener">
         <div class="pc-top"><span class="pc-name">Calas de Roche</span><span class="pc-rate">🚶 10 min</span></div>
         <div class="pc-tags"><span class="pc-tag front">Resguardada</span><span class="pc-tag">Marea</span></div>
         <div class="pc-desc">Frailecillo, Cala del Pato y otras encadenadas hacia el norte. Aguas tranquilas entre acantilados.<span class="note">⚠️ Con marea alta la arena casi desaparece — consultar tabla.</span></div>
-      </div>
+        <div class="pc-foot"><span class="pick">Ver en Maps ↗</span></div>
+      </a>
 
-      <div class="pcard">
+      <a class="pcard" href="https://www.google.com/maps/search/?api=1&query=Cala+del+Aceite+Conil+de+la+Frontera" target="_blank" rel="noopener">
         <div class="pc-top"><span class="pc-name">Cala del Aceite</span><span class="pc-rate">🚗 10 min</span></div>
         <div class="pc-tags"><span class="pc-tag front">Muy resguardada</span><span class="pc-tag">Se llena pronto</span></div>
         <div class="pc-desc">La más protegida de la zona, balsa de aceite con poniente. La mejor opción en días de levante fuerte.<span class="note">Id antes de las 11:00, el parking se llena rápido pese a estar apartada.</span></div>
-      </div>
+        <div class="pc-foot"><span class="pick">Ver en Maps ↗</span></div>
+      </a>
 
-      <div class="pcard">
+      <a class="pcard" href="https://www.google.com/maps/search/?api=1&query=Playa+de+Castilnovo+Conil+de+la+Frontera" target="_blank" rel="noopener">
         <div class="pc-top"><span class="pc-name">Playa de Castilnovo</span><span class="pc-rate">🚶 15 min</span></div>
         <div class="pc-tags"><span class="pc-tag front">Abierta</span><span class="pc-tag">Poca gente</span></div>
         <div class="pc-desc">Larga, con dunas, la menos masificada de Conil. Más expuesta al viento que las calas, pero espacio de sobra.</div>
-      </div>
+        <div class="pc-foot"><span class="pick">Ver en Maps ↗</span></div>
+      </a>
 
-      <div class="pcard">
+      <a class="pcard" href="https://www.google.com/maps/search/?api=1&query=Playa+de+Zahora+Barbate" target="_blank" rel="noopener">
         <div class="pc-top"><span class="pc-name">Zahora</span><span class="pc-rate">🚗 25 min</span></div>
         <div class="pc-tags"><span class="pc-tag front">Algo resguardada</span><span class="pc-tag">Ya la conocéis</span></div>
         <div class="pc-desc">Protegida parcialmente por dunas, menos masificada que Conil en agosto. Comisteis aquí el domingo (La Kalima).</div>
-      </div>
+        <div class="pc-foot"><span class="pick">Ver en Maps ↗</span></div>
+      </a>
 
-      <div class="pcard">
+      <a class="pcard" href="https://www.google.com/maps/search/?api=1&query=Calas+de+Meca+Los+Ca%C3%B1os+de+Meca" target="_blank" rel="noopener">
         <div class="pc-top"><span class="pc-name">Calas de Meca</span><span class="pc-rate">🚗 25 min</span></div>
         <div class="pc-tags"><span class="pc-tag front">Resguardada</span><span class="pc-tag">Junto a Trafalgar</span></div>
         <div class="pc-desc">Calitas con cuevas bajo el acantilado del cabo, junto al faro. Combina bien con el atardecer del martes.</div>
-      </div>
+        <div class="pc-foot"><span class="pick">Ver en Maps ↗</span></div>
+      </a>
 
-      <div class="pcard">
+      <a class="pcard" href="https://www.google.com/maps/search/?api=1&query=Playa+de+El+Palmar+Vejer+de+la+Frontera" target="_blank" rel="noopener">
         <div class="pc-top"><span class="pc-name">El Palmar</span><span class="pc-rate">🚗 15 min</span></div>
         <div class="pc-tags"><span class="pc-tag front">Abierta</span><span class="pc-tag">Surf y viento</span></div>
         <div class="pc-desc">Playa larga y expuesta, la favorita del surf — por eso mismo, mucho viento de día. Mejor para atardecer y cena que para tomar el sol.</div>
-      </div>
+        <div class="pc-foot"><span class="pick">Ver en Maps ↗</span></div>
+      </a>
 
-      <div class="pcard">
+      <a class="pcard" href="https://www.google.com/maps/search/?api=1&query=Playa+de+los+Alemanes+Zahara+de+los+Atunes" target="_blank" rel="noopener">
         <div class="pc-top"><span class="pc-name">Playa de los Alemanes</span><span class="pc-rate">🚗 40 min</span></div>
         <div class="pc-tags"><span class="pc-tag front">Abierta</span><span class="pc-tag">Muy expuesta</span></div>
         <div class="pc-desc">Agua clarísima y preciosa, pero muy expuesta al levante. Solo si el viento acompaña ese día.</div>
-      </div>
+        <div class="pc-foot"><span class="pick">Ver en Maps ↗</span></div>
+      </a>
 
     </div>
   </section>
@@ -562,70 +573,70 @@
         <div class="pc-top"><span class="pc-name">La Guayabita Beach</span><span class="pc-rate">★ 4.9</span></div>
         <div class="pc-tags"><span class="pc-tag front">El Palmar</span><span class="pc-tag">Pokes &amp; bowls</span><span class="pc-tag">Ligera</span></div>
         <div class="pc-desc">En el paseo marítimo, con la <b>nota más alta</b> de El Palmar. Pokes, bowls, sushi y ensaladas muy frescas, también smoothies y helados. Sin música, pero ideal para una <b>cena ligera y saludable</b>. Dentro del mercado ZOCO Palmar, sin reserva.</div>
-        <div class="pc-foot"><span class="pick">Fresco y ligero</span><a href="tel:+34686565349">686 56 53 49</a></div>
+        <div class="pc-foot"><span class="pick">Fresco y ligero</span><span class="pc-links"><a href="tel:+34686565349">686 56 53 49</a><a href="https://www.google.com/maps/search/?api=1&query=La+Guayabita+Beach+El+Palmar+Vejer" target="_blank" rel="noopener">Maps ↗</a></span></div>
       </div>
 
       <div class="pcard">
         <div class="pc-top"><span class="pc-name">Nómada Playa</span><span class="pc-rate">★ 4.4</span></div>
         <div class="pc-tags"><span class="pc-tag front">El Palmar</span><span class="pc-tag music">♪ Música</span><span class="pc-tag">Atardecer</span></div>
         <div class="pc-desc">Tapas, música en vivo y puesta de sol pegado a la arena. <b>Ya está en el plan del domingo.</b> Mercado gastronómico de autoservicio: cada puesto se pide aparte, sin reserva de mesa.</div>
-        <div class="pc-foot"><span class="pick">En el plan · Dom 23</span></div>
+        <div class="pc-foot"><span class="pick">En el plan · Dom 23</span><a href="https://www.google.com/maps/search/?api=1&query=N%C3%B3mada+Playa+El+Palmar+Vejer" target="_blank" rel="noopener">Maps ↗</a></div>
       </div>
 
       <div class="pcard">
         <div class="pc-top"><span class="pc-name">Nayah Beach</span><span class="pc-rate">★ 4.8</span></div>
         <div class="pc-tags"><span class="pc-tag front">El Palmar</span><span class="pc-tag">Cocina asiática</span></div>
         <div class="pc-desc">Sin música en vivo, pero con la <b>nota más alta</b> de la zona. Sushi, tempura y bowls de atún, trato de pareja encantador. Algo apartado del centro. Para una cena distinta y tranquila.</div>
-        <div class="pc-foot"><span class="pick">En el plan · Mar 25, 21h ✓</span><a href="tel:+34615941176">615 94 11 76</a></div>
+        <div class="pc-foot"><span class="pick">En el plan · Mar 25, 21h ✓</span><span class="pc-links"><a href="tel:+34615941176">615 94 11 76</a><a href="https://www.google.com/maps/search/?api=1&query=Nayah+Beach+El+Palmar+Vejer" target="_blank" rel="noopener">Maps ↗</a></span></div>
       </div>
 
       <div class="pcard">
         <div class="pc-top"><span class="pc-name">Havanita Terraza</span><span class="pc-rate">★ 3.9</span></div>
         <div class="pc-tags"><span class="pc-tag front">El Palmar</span><span class="pc-tag music">♪ Música en vivo</span><span class="pc-tag">Copas</span></div>
         <div class="pc-desc">Más de <b>copa con música</b> que de cena. Primera fila junto al mar para el atardecer, pero servicio de barra lento y bebidas caras. Para tomar algo, no para cenar.</div>
-        <div class="pc-foot"><span class="pick">Solo copas</span><a href="tel:+34617296872">617 29 68 72</a></div>
+        <div class="pc-foot"><span class="pick">Solo copas</span><span class="pc-links"><a href="tel:+34617296872">617 29 68 72</a><a href="https://www.google.com/maps/search/?api=1&query=Havanita+Terraza+El+Palmar+Vejer" target="_blank" rel="noopener">Maps ↗</a></span></div>
       </div>
 
       <div class="pcard">
         <div class="pc-top"><span class="pc-name">Mercado Antantié</span><span class="pc-rate">★ 4.5</span></div>
         <div class="pc-tags"><span class="pc-tag front">Conil pueblo</span><span class="pc-tag">Mercado gastro</span><span class="pc-tag">Ligera</span></div>
         <div class="pc-desc">5 mini-cocinas bajo un mismo techo, ambiente animado, sin salir de Conil. Lasaña de atún rojo y bocadillo de presa ibérica muy recomendados. <b>Cierra los martes.</b> Picoteo informal, sin reserva.</div>
-        <div class="pc-foot"><span class="pick">Sin moverse de Conil</span><a href="tel:+34956444030">956 44 40 30</a></div>
+        <div class="pc-foot"><span class="pick">Sin moverse de Conil</span><span class="pc-links"><a href="tel:+34956444030">956 44 40 30</a><a href="https://www.google.com/maps/search/?api=1&query=Mercado+Gastron%C3%B3mico+Antanti%C3%A9+Conil+de+la+Frontera" target="_blank" rel="noopener">Maps ↗</a></span></div>
       </div>
 
       <div class="pcard">
         <div class="pc-top"><span class="pc-name">ZOCO Palmar</span><span class="pc-rate">★ 4.5</span></div>
         <div class="pc-tags"><span class="pc-tag front">El Palmar</span><span class="pc-tag">Mercado gastro</span><span class="pc-tag">Ligera</span></div>
         <div class="pc-desc">El mercado gastronómico que alberga La Guayabita: pizza de horno de leña, poke, kebab, hamburguesas. Zona infantil con monitora, buen ambiente de atardecer. Picoteo informal, sin reserva.</div>
-        <div class="pc-foot"><span class="pick">Junto a La Guayabita</span><a href="tel:+34630362671">630 36 26 71</a></div>
+        <div class="pc-foot"><span class="pick">Junto a La Guayabita</span><span class="pc-links"><a href="tel:+34630362671">630 36 26 71</a><a href="https://www.google.com/maps/search/?api=1&query=ZOCO+Palmar+El+Palmar+Vejer" target="_blank" rel="noopener">Maps ↗</a></span></div>
       </div>
 
       <div class="pcard">
         <div class="pc-top"><span class="pc-name">El Lola</span><span class="pc-rate">★ 4.6</span></div>
         <div class="pc-tags"><span class="pc-tag front">Tarifa · 55 min</span><span class="pc-tag">Tapas &amp; flamenco</span></div>
         <div class="pc-desc">Bar de tapas en el casco antiguo de Tarifa, ambiente muy auténtico y sin cartas turísticas. Atún y cerdo ibérico a la parrilla muy destacados, con platos fuera de carta. <b>Se llena mucho</b> — id pronto o esperad cerca.</div>
-        <div class="pc-foot"><span class="pick">Casco de Tarifa</span><a href="tel:+34956627307">956 62 73 07</a></div>
+        <div class="pc-foot"><span class="pick">Casco de Tarifa</span><span class="pc-links"><a href="tel:+34956627307">956 62 73 07</a><a href="https://www.google.com/maps/search/?api=1&query=El+Lola+Tarifa" target="_blank" rel="noopener">Maps ↗</a></span></div>
       </div>
 
       <div class="pcard">
         <div class="pc-top"><span class="pc-name">Arte Vida</span><span class="pc-rate">★ 4.3</span></div>
         <div class="pc-tags"><span class="pc-tag front">Tarifa · 55 min</span><span class="pc-tag">Playa</span><span class="pc-tag">Atardecer</span></div>
         <div class="pc-desc">Chiringuito + restaurante + chill-out frente a la playa de Tarifa, vistas espectaculares. Tartar de atún de los mejores de la zona, rodaballo y lubina muy recomendados. Pet-friendly.</div>
-        <div class="pc-foot"><span class="pick">Playa de Tarifa</span><a href="tel:+34956685246">956 68 52 46</a></div>
+        <div class="pc-foot"><span class="pick">Playa de Tarifa</span><span class="pc-links"><a href="tel:+34956685246">956 68 52 46</a><a href="https://www.google.com/maps/search/?api=1&query=Arte+Vida+Tarifa" target="_blank" rel="noopener">Maps ↗</a></span></div>
       </div>
 
       <div class="pcard">
         <div class="pc-top"><span class="pc-name">Otero Bolonia</span><span class="pc-rate">★ 4.6</span></div>
         <div class="pc-tags"><span class="pc-tag front">Bolonia · 55 min</span><span class="pc-tag">Marisco &amp; atún</span></div>
         <div class="pc-desc">Junto a las ruinas romanas de Baelo Claudia, con vistas al mar. Marisco fresquísimo, tartar de atún y tataki muy destacados, servicio atento incluso con el sitio lleno. <b>Reservar en temporada alta.</b> Cierra domingos.</div>
-        <div class="pc-foot"><span class="pick">Bolonia</span><a href="tel:+34956688594">956 68 85 94</a></div>
+        <div class="pc-foot"><span class="pick">Bolonia</span><span class="pc-links"><a href="tel:+34956688594">956 68 85 94</a><a href="https://www.google.com/maps/search/?api=1&query=Otero+Bolonia+Tarifa" target="_blank" rel="noopener">Maps ↗</a></span></div>
       </div>
 
       <div class="pcard">
         <div class="pc-top"><span class="pc-name">Miramar Bolonia</span><span class="pc-rate">★ 4.4</span></div>
         <div class="pc-tags"><span class="pc-tag front">Bolonia · 55 min</span><span class="pc-tag">Atún</span><span class="pc-tag">Vistas</span></div>
         <div class="pc-desc">Terraza con vistas a la duna, las ruinas romanas y el mar. La tostada de atún con trufa, muy elogiada. Servicio rápido y eficiente. Cierra los viernes.</div>
-        <div class="pc-foot"><span class="pick">Junto a las ruinas</span><a href="tel:+34956688539">956 68 85 39</a></div>
+        <div class="pc-foot"><span class="pick">Junto a las ruinas</span><span class="pc-links"><a href="tel:+34956688539">956 68 85 39</a><a href="https://www.google.com/maps/search/?api=1&query=Miramar+Bolonia+Tarifa" target="_blank" rel="noopener">Maps ↗</a></span></div>
       </div>
 
     </div>
@@ -745,7 +756,7 @@
 
 <footer>
   <div class="wrap">
-    <div class="v">Plan de viaje · versión 32</div>
+    <div class="v">Plan de viaje · versión 33</div>
     <div class="tiny">Iremos iterando · Cádiz, agosto 2026</div>
   </div>
 </footer>
