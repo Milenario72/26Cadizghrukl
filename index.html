@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="robots" content="noindex, nofollow">
-<title>2026 Cádiz · v35</title>
+<title>2026 Cádiz · v36</title>
 <link rel="apple-touch-icon" href="apple-touch-icon.png">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
@@ -761,7 +761,7 @@
 
 <footer>
   <div class="wrap">
-    <div class="v">Plan de viaje · versión 35</div>
+    <div class="v">Plan de viaje · versión 36</div>
     <div class="tiny">Iremos iterando · Cádiz, agosto 2026</div>
   </div>
 </footer>
@@ -835,6 +835,15 @@
   var metaColor = document.getElementById('theme-color-meta');
   var STORAGE_KEY = 'cadiz2026-theme';
 
+  function readCookie(name) {
+    var match = document.cookie.match(new RegExp('(?:^|; )' + name + '=([^;]*)'));
+    return match ? decodeURIComponent(match[1]) : null;
+  }
+  function writeCookie(name, value) {
+    var oneYear = 60 * 60 * 24 * 365;
+    document.cookie = name + '=' + encodeURIComponent(value) + '; max-age=' + oneYear + '; path=/; SameSite=Lax';
+  }
+
   function applyTheme(theme) {
     if (theme === 'dark') {
       root.setAttribute('data-theme', 'dark');
@@ -851,8 +860,11 @@
 
   var saved = null;
   try { saved = localStorage.getItem(STORAGE_KEY); } catch (e) {}
+  if (!saved) { saved = readCookie(STORAGE_KEY); }
 
-  var initial = saved || (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+  // Modo claro es el predeterminado siempre que no haya elección guardada,
+  // sin heredar la preferencia de color del sistema/iPhone.
+  var initial = saved === 'dark' ? 'dark' : 'light';
   applyTheme(initial);
 
   if (toggleBtn) {
@@ -861,6 +873,7 @@
       var next = current === 'dark' ? 'light' : 'dark';
       applyTheme(next);
       try { localStorage.setItem(STORAGE_KEY, next); } catch (e) {}
+      writeCookie(STORAGE_KEY, next);
     });
   }
 })();
