@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="robots" content="noindex, nofollow">
-<title>2026 Cádiz · v31</title>
+<title>2026 Cádiz · v32</title>
 <link rel="apple-touch-icon" href="apple-touch-icon.png">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
@@ -179,14 +179,14 @@
     position:relative;border-radius:14px;padding:22px 20px 20px;overflow:hidden;
     background:linear-gradient(160deg,#2f6f76 0%,#3d7c73 40%,#e0803b 140%);
     color:#fdf6ea;min-height:150px;display:flex;flex-direction:column;
+    text-decoration:none;transition:transform .15s ease;
   }
+  .sunset:active{transform:scale(0.98)}
   .sunset .sky{position:absolute;right:-30px;top:-30px;width:110px;height:110px;border-radius:50%;
     background:radial-gradient(circle,#ffe1ad 0%,rgba(255,225,173,0) 70%);opacity:.8}
-  .sunset .st-day{font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;opacity:.9;position:relative}
-  .sunset .st-name{font-family:'Fraunces',serif;font-weight:600;font-size:22px;margin-top:8px;line-height:1.05;position:relative}
+  .sunset .st-name{font-family:'Fraunces',serif;font-weight:600;font-size:22px;line-height:1.05;position:relative}
   .sunset .st-desc{font-size:13px;margin-top:8px;opacity:.94;position:relative;flex:1}
   .sunset .st-tip{font-size:12px;margin-top:12px;font-weight:600;opacity:.95;position:relative;border-top:1px solid rgba(255,255,255,.28);padding-top:9px}
-  .sunset.pending{background:linear-gradient(160deg,#8a7a54 0%,#b98a4e 60%,#e0803b 150%)}
 
   /* ---------- CHECKLIST ---------- */
   .checklist{background:var(--card);border:1px solid var(--line);border-radius:14px;overflow:hidden;box-shadow:var(--shadow)}
@@ -509,31 +509,41 @@
   <section id="atardeceres">
     <div class="sec-head">
       <span class="num">iii</span>
-      <h2>Dónde cae el sol</h2>
+      <h2>Atardeceres</h2>
       <span class="rule"></span>
     </div>
+    <p style="font-size:14px;opacity:.8;margin:-10px 0 22px;max-width:60ch">Cinco opciones para repartir por los días que os apetezca, sin atarlas a una fecha fija.</p>
     <div class="sun-grid">
-      <div class="sunset">
+      <a class="sunset" href="https://www.google.com/maps/search/?api=1&query=Mirador+de+la+Cobijada+Vejer+de+la+Frontera" target="_blank" rel="noopener">
         <div class="sky"></div>
-        <div class="st-day">Lunes 24</div>
         <div class="st-name">Miradores de Vejer</div>
         <div class="st-desc">La Cobijada, en la judería junto a las murallas, y Don Quijote, con la mejor panorámica del casco blanco.</div>
-        <div class="st-tip">Mejor luz una hora antes del ocaso.</div>
-      </div>
-      <div class="sunset">
+        <div class="st-tip">Mejor luz una hora antes del ocaso · Ver en Maps ↗</div>
+      </a>
+      <a class="sunset" href="https://www.google.com/maps/search/?api=1&query=Faro+de+Trafalgar+Cabo+de+Trafalgar" target="_blank" rel="noopener">
         <div class="sky"></div>
-        <div class="st-day">Martes 25</div>
         <div class="st-name">Cabo de Trafalgar</div>
         <div class="st-desc">El faro sobre la península, con playa a ambos lados. El atardecer nº1 de toda la zona.</div>
-        <div class="st-tip">Aparcar temprano en agosto.</div>
-      </div>
-      <div class="sunset pending">
+        <div class="st-tip">Aparcar temprano en agosto · Ver en Maps ↗</div>
+      </a>
+      <a class="sunset" href="https://www.google.com/maps/search/?api=1&query=Torre+del+Puerco+Chiclana" target="_blank" rel="noopener">
         <div class="sky"></div>
-        <div class="st-day">Miércoles 26</div>
-        <div class="st-name">Por decidir</div>
-        <div class="st-desc">Día libre de playa — el atardecer se elige según dónde acabéis. Cala del Aceite, Roche o Zahora, todas con buena puesta de sol.</div>
-        <div class="st-tip">Torre del Puerco (Chiclana) también vale, si os apetece variar.</div>
-      </div>
+        <div class="st-name">Torre del Puerco</div>
+        <div class="st-desc">La Barrosa, Chiclana. Torre vigía sobre una playa larguísima sin edificios, buen paseo a pie desde el faro de Roche.</div>
+        <div class="st-tip">A 20 min · Ver en Maps ↗</div>
+      </a>
+      <a class="sunset" href="https://www.google.com/maps/search/?api=1&query=Cala+del+Aceite+Conil+de+la+Frontera" target="_blank" rel="noopener">
+        <div class="sky"></div>
+        <div class="st-name">Cala del Aceite</div>
+        <div class="st-desc">Cerca del hotel, resguardada y muy fotogénica al caer el sol. Chiringuito propio para quedarse a tomar algo.</div>
+        <div class="st-tip">A 10 min · Ver en Maps ↗</div>
+      </a>
+      <a class="sunset" href="https://www.google.com/maps/search/?api=1&query=Playa+de+Castilnovo+Conil+de+la+Frontera" target="_blank" rel="noopener">
+        <div class="sky"></div>
+        <div class="st-name">Playa de Castilnovo</div>
+        <div class="st-desc">Larga, con dunas y sin edificios, la más salvaje de Conil. Puesta de sol despejada, sin nadie alrededor.</div>
+        <div class="st-tip">A 15 min · Ver en Maps ↗</div>
+      </a>
     </div>
   </section>
 
@@ -604,11 +614,11 @@
         <div class="pc-foot"><span class="pick">Playa de Tarifa</span><a href="tel:+34956685246">956 68 52 46</a></div>
       </div>
 
-      <div class="pcard top">
+      <div class="pcard">
         <div class="pc-top"><span class="pc-name">Otero Bolonia</span><span class="pc-rate">★ 4.6</span></div>
         <div class="pc-tags"><span class="pc-tag front">Bolonia · 55 min</span><span class="pc-tag">Marisco &amp; atún</span></div>
         <div class="pc-desc">Junto a las ruinas romanas de Baelo Claudia, con vistas al mar. Marisco fresquísimo, tartar de atún y tataki muy destacados, servicio atento incluso con el sitio lleno. <b>Reservar en temporada alta.</b> Cierra domingos.</div>
-        <div class="pc-foot"><span class="pick">Recomendado</span><a href="tel:+34956688594">956 68 85 94</a></div>
+        <div class="pc-foot"><span class="pick">Bolonia</span><a href="tel:+34956688594">956 68 85 94</a></div>
       </div>
 
       <div class="pcard">
@@ -708,36 +718,10 @@
   </section>
 
   <!-- ===================== NOTAS ===================== -->
-  <section id="notas">
-    <div class="sec-head">
-      <span class="num">vi</span>
-      <h2>No olvidar</h2>
-      <span class="rule"></span>
-    </div>
-    <div class="notes">
-      <div class="note-card">
-        <h3><span class="ic">🌬️</span> Viento manda</h3>
-        <p>Mira Windy o Windguru cada noche. Con levante (E/SE) → calas resguardadas (Aceite, Roche). Con poniente o calma → cualquier playa, incluida la del hotel.</p>
-      </div>
-      <div class="note-card">
-        <h3><span class="ic">🅿️</span> Aparcamiento</h3>
-        <p>En toda la zona de calas y en Trafalgar, llegar antes de las 11:00 o después de las 14:00. Cala del Aceite se llena muy pronto pese a estar apartada.</p>
-      </div>
-      <div class="note-card">
-        <h3><span class="ic">🌊</span> Mareas</h3>
-        <p>En las Calas de Roche y Fuente del Gallo, con marea alta la arena casi desaparece. Consulta la tabla la víspera.</p>
-      </div>
-      <div class="note-card">
-        <h3><span class="ic">🍽️</span> Cierres a vigilar</h3>
-        <p>El Roqueo cierra lunes · Feduchy y La Fontanilla, miércoles · Catalina y Malabata, sábado y domingo. Reserva las cenas con antelación en agosto.</p>
-      </div>
-    </div>
-  </section>
-
   <!-- ===================== ENLACES ÚTILES ===================== -->
   <section id="enlaces">
     <div class="sec-head">
-      <span class="num">vii</span>
+      <span class="num">vi</span>
       <h2>Enlaces útiles</h2>
       <span class="rule"></span>
     </div>
@@ -761,7 +745,7 @@
 
 <footer>
   <div class="wrap">
-    <div class="v">Plan de viaje · versión 31</div>
+    <div class="v">Plan de viaje · versión 32</div>
     <div class="tiny">Iremos iterando · Cádiz, agosto 2026</div>
   </div>
 </footer>
