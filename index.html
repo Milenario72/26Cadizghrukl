@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="robots" content="noindex, nofollow">
-<title>2026 Cádiz · v26</title>
+<title>2026 Cádiz · v27</title>
 <link rel="apple-touch-icon" href="apple-touch-icon.png">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
@@ -193,6 +193,10 @@
   /* ---------- NOTES ---------- */
   .notes{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px}
   .note-card{background:#fbf7ee;border:1px solid var(--line);border-radius:12px;padding:18px 18px}
+  .note-card.link-card{display:block;text-decoration:none;color:inherit;transition:border-color .15s ease,transform .15s ease}
+  .note-card.link-card:active{transform:scale(0.98)}
+  .note-card.link-card:hover{border-color:var(--sun)}
+  .note-card.link-card h3::after{content:"↗";margin-left:6px;font-size:13px;color:var(--sun);font-weight:700}
   .note-card h3{font-family:'Fraunces',serif;font-weight:600;font-size:16px;margin-bottom:8px;display:flex;align-items:center;gap:8px}
   .note-card p{font-size:13.5px;opacity:.82}
   .note-card .ic{font-size:18px}
@@ -624,11 +628,34 @@
     </div>
   </section>
 
+  <!-- ===================== ENLACES ÚTILES ===================== -->
+  <section id="enlaces">
+    <div class="sec-head">
+      <span class="num">vi</span>
+      <h2>Enlaces útiles</h2>
+      <span class="rule"></span>
+    </div>
+    <div class="notes">
+      <a class="note-card link-card" href="https://tablademareas.com/es/andalucia/conil-de-la-frontera" target="_blank" rel="noopener">
+        <h3><span class="ic">🌊</span> Mareas — Conil</h3>
+        <p>Tabla de pleamar y bajamar del día, imprescindible para las Calas de Roche y Fuente del Gallo.</p>
+      </a>
+      <a class="note-card link-card" href="https://www.windy.com/es/-Cádiz/Conil?39.000,-6.000,7" target="_blank" rel="noopener">
+        <h3><span class="ic">🌬️</span> Viento — Windy</h3>
+        <p>Previsión de levante/poniente para decidir cala resguardada o playa abierta cada mañana.</p>
+      </a>
+      <a class="note-card link-card" href="https://www.google.com/maps/@36.28,-6.10,11z/data=!5m1!1e1" target="_blank" rel="noopener">
+        <h3><span class="ic">🚗</span> Tráfico en directo</h3>
+        <p>Estado de la A-4/A-48 en tiempo real, útil sobre todo el día de salida y vuelta por el cinturón de Sevilla.</p>
+      </a>
+    </div>
+  </section>
+
 </main>
 
 <footer>
   <div class="wrap">
-    <div class="v">Plan de viaje · versión 26</div>
+    <div class="v">Plan de viaje · versión 27</div>
     <div class="tiny">Iremos iterando · Cádiz, agosto 2026</div>
   </div>
 </footer>
