@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="robots" content="noindex, nofollow">
-<title>2026 Cádiz · v28</title>
+<title>2026 Cádiz · v29</title>
 <link rel="apple-touch-icon" href="apple-touch-icon.png">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
@@ -17,6 +17,8 @@
     --ink:#1b2a2f;          /* casi negro azulado, tinta */
     --paper:#f3ede1;        /* arena clara */
     --paper2:#ebe2d2;       /* arena algo más tostada */
+    --card:#fbf7ee;         /* fondo de tarjetas */
+    --card-text:#222222;    /* texto dentro de tarjetas */
     --sea:#2f6f76;          /* verde-azulado atlántico */
     --sea-deep:#1d4c52;     /* mar profundo */
     --sun:#e0803b;          /* naranja atardecer */
@@ -25,7 +27,25 @@
     --line:#ccbfa8;         /* línea sobre arena */
     --done:#3f7d68;         /* verde reserva hecha */
     --shadow: 0 1px 0 rgba(27,42,47,.06);
+    --tabbar-bg: rgba(251,247,238,.92);
   }
+  [data-theme="dark"]{
+    --ink:#ece4d4;
+    --paper:#151b1d;
+    --paper2:#1c2426;
+    --card:#212a2c;
+    --card-text:#e7e0d2;
+    --sea:#5fa1a8;
+    --sea-deep:#8fc4ca;
+    --sun:#f0954f;
+    --sun-soft:#f0b077;
+    --coral:#e08070;
+    --line:#3a4548;
+    --done:#5fae94;
+    --shadow: 0 1px 0 rgba(0,0,0,.25);
+    --tabbar-bg: rgba(21,27,29,.92);
+  }
+  [data-theme="dark"] body{color-scheme:dark}
   *{box-sizing:border-box;margin:0;padding:0}
   html{scroll-behavior:smooth}
   body{
@@ -91,7 +111,7 @@
 
   /* ---------- DAY CARDS ---------- */
   .day{
-    background:#fbf7ee;border:1px solid var(--line);border-radius:14px;
+    background:var(--card);border:1px solid var(--line);border-radius:14px;
     padding:0;margin-bottom:18px;overflow:hidden;box-shadow:var(--shadow);
   }
   .day summary{
@@ -167,7 +187,7 @@
   .sunset.pending{background:linear-gradient(160deg,#8a7a54 0%,#b98a4e 60%,#e0803b 150%)}
 
   /* ---------- CHECKLIST ---------- */
-  .checklist{background:#fbf7ee;border:1px solid var(--line);border-radius:14px;overflow:hidden;box-shadow:var(--shadow)}
+  .checklist{background:var(--card);border:1px solid var(--line);border-radius:14px;overflow:hidden;box-shadow:var(--shadow)}
   .ck-row{display:flex;align-items:center;gap:14px;padding:14px 20px;border-bottom:1px dashed var(--line)}
   .ck-row:last-child{border-bottom:none}
   .ck-box{
@@ -192,7 +212,7 @@
 
   /* ---------- NOTES ---------- */
   .notes{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px}
-  .note-card{background:#fbf7ee;border:1px solid var(--line);border-radius:12px;padding:18px 18px}
+  .note-card{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:18px 18px}
   .note-card.link-card{display:block;text-decoration:none;color:inherit;transition:border-color .15s ease,transform .15s ease}
   .note-card.link-card:active{transform:scale(0.98)}
   .note-card.link-card:hover{border-color:var(--sun)}
@@ -207,7 +227,7 @@
 
   /* ---------- PALMAR MUSIC CARDS ---------- */
   .palmar-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:16px}
-  .pcard{background:#fbf7ee;border:1px solid var(--line);border-radius:14px;padding:20px 20px 18px;box-shadow:var(--shadow);display:flex;flex-direction:column}
+  .pcard{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:20px 20px 18px;box-shadow:var(--shadow);display:flex;flex-direction:column}
   .pcard .pc-top{display:flex;align-items:baseline;justify-content:space-between;gap:10px;margin-bottom:3px}
   .pcard .pc-name{font-family:'Fraunces',serif;font-weight:600;font-size:19px;letter-spacing:-.01em}
   .pcard .pc-rate{flex:none;font-size:12px;font-weight:700;color:var(--sea);background:var(--paper2);border:1px solid var(--line);border-radius:20px;padding:2px 9px}
@@ -233,7 +253,7 @@
   body{padding-bottom:78px}
   .tabbar{
     position:fixed;left:0;right:0;bottom:0;z-index:50;
-    background:rgba(251,247,238,.92);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);
+    background:var(--tabbar-bg);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);
     border-top:1px solid var(--line);
     display:flex;justify-content:space-around;align-items:stretch;
     padding-bottom:env(safe-area-inset-bottom,0);
@@ -245,7 +265,7 @@
     -webkit-tap-highlight-color:transparent;
   }
   .tabbar button .tb-ic{font-size:19px;line-height:1}
-  .tabbar button .tb-label{font-size:10px;font-weight:600;letter-spacing:.01em}
+  .tabbar button .tb-label{font-size:9px;font-weight:600;letter-spacing:.01em;white-space:nowrap}
   .tabbar button.active{color:var(--sun)}
   .tabbar button.active .tb-ic{transform:translateY(-1px)}
   .tabbar button:active{opacity:.6}
@@ -737,7 +757,7 @@
 
 <footer>
   <div class="wrap">
-    <div class="v">Plan de viaje · versión 28</div>
+    <div class="v">Plan de viaje · versión 29</div>
     <div class="tiny">Iremos iterando · Cádiz, agosto 2026</div>
   </div>
 </footer>
@@ -754,6 +774,9 @@
   </button>
   <button data-target="palmar" type="button">
     <span class="tb-ic">🍽️</span><span class="tb-label">Restaurantes</span>
+  </button>
+  <button id="theme-toggle" type="button">
+    <span class="tb-ic" id="theme-icon">🌙</span><span class="tb-label">Modo oscuro</span>
   </button>
 </nav>
 
@@ -788,7 +811,7 @@
 })();
 
 (function () {
-  var buttons = document.querySelectorAll('.tabbar button');
+  var buttons = document.querySelectorAll('.tabbar button[data-target]');
   buttons.forEach(function (btn) {
     btn.addEventListener('click', function () {
       var target = document.getElementById(btn.getAttribute('data-target'));
@@ -798,6 +821,41 @@
       target.scrollIntoView({ behavior: 'smooth', block: 'start' });
     });
   });
+})();
+
+(function () {
+  var root = document.documentElement;
+  var toggleBtn = document.getElementById('theme-toggle');
+  var icon = document.getElementById('theme-icon');
+  var label = toggleBtn ? toggleBtn.querySelector('.tb-label') : null;
+  var STORAGE_KEY = 'cadiz2026-theme';
+
+  function applyTheme(theme) {
+    if (theme === 'dark') {
+      root.setAttribute('data-theme', 'dark');
+      if (icon) icon.textContent = '☀️';
+      if (label) label.textContent = 'Modo claro';
+    } else {
+      root.removeAttribute('data-theme');
+      if (icon) icon.textContent = '🌙';
+      if (label) label.textContent = 'Modo oscuro';
+    }
+  }
+
+  var saved = null;
+  try { saved = localStorage.getItem(STORAGE_KEY); } catch (e) {}
+
+  var initial = saved || (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+  applyTheme(initial);
+
+  if (toggleBtn) {
+    toggleBtn.addEventListener('click', function () {
+      var current = root.getAttribute('data-theme') === 'dark' ? 'dark' : 'light';
+      var next = current === 'dark' ? 'light' : 'dark';
+      applyTheme(next);
+      try { localStorage.setItem(STORAGE_KEY, next); } catch (e) {}
+    });
+  }
 })();
 </script>
 
