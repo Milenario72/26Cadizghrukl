@@ -4,16 +4,18 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="robots" content="noindex, nofollow">
-<title>2026 Cádiz · v29</title>
+<title>2026 Cádiz · v30</title>
 <link rel="apple-touch-icon" href="apple-touch-icon.png">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="apple-mobile-web-app-title" content="Cádiz 2026">
+<meta name="theme-color" id="theme-color-meta" content="#f3ede1">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,900&family=Archivo:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
   :root{
+    color-scheme: light;
     --ink:#1b2a2f;          /* casi negro azulado, tinta */
     --paper:#f3ede1;        /* arena clara */
     --paper2:#ebe2d2;       /* arena algo más tostada */
@@ -30,6 +32,7 @@
     --tabbar-bg: rgba(251,247,238,.92);
   }
   [data-theme="dark"]{
+    color-scheme: dark;
     --ink:#ece4d4;
     --paper:#151b1d;
     --paper2:#1c2426;
@@ -45,7 +48,6 @@
     --shadow: 0 1px 0 rgba(0,0,0,.25);
     --tabbar-bg: rgba(21,27,29,.92);
   }
-  [data-theme="dark"] body{color-scheme:dark}
   *{box-sizing:border-box;margin:0;padding:0}
   html{scroll-behavior:smooth}
   body{
@@ -757,7 +759,7 @@
 
 <footer>
   <div class="wrap">
-    <div class="v">Plan de viaje · versión 29</div>
+    <div class="v">Plan de viaje · versión 30</div>
     <div class="tiny">Iremos iterando · Cádiz, agosto 2026</div>
   </div>
 </footer>
@@ -828,6 +830,7 @@
   var toggleBtn = document.getElementById('theme-toggle');
   var icon = document.getElementById('theme-icon');
   var label = toggleBtn ? toggleBtn.querySelector('.tb-label') : null;
+  var metaColor = document.getElementById('theme-color-meta');
   var STORAGE_KEY = 'cadiz2026-theme';
 
   function applyTheme(theme) {
@@ -835,10 +838,12 @@
       root.setAttribute('data-theme', 'dark');
       if (icon) icon.textContent = '☀️';
       if (label) label.textContent = 'Modo claro';
+      if (metaColor) metaColor.setAttribute('content', '#151b1d');
     } else {
       root.removeAttribute('data-theme');
       if (icon) icon.textContent = '🌙';
       if (label) label.textContent = 'Modo oscuro';
+      if (metaColor) metaColor.setAttribute('content', '#f3ede1');
     }
   }
 
